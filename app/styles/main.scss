@@ -1,6 +1,7 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
+@import "compass/css3/border-radius";
 
 .browsehappy {
     margin: 0.2em 0;
@@ -89,3 +90,63 @@ body {
         border-bottom: 0;
     }
 }
+
+// start todo app
+
+.app {
+    padding: 15px;
+    background: #D1EBD3;
+    border: 1px solid #acacac;; 
+    @include border-radius(6px);
+
+    .new-todo-input {
+        font-size: 23px;
+        padding: 20px 10px;
+        width: 100%;
+        color: gray;
+        border: 1px solid rgb(194, 194, 194);
+        @include border-radius(6px 0 0 6px);
+    }
+
+    .add-todo {
+        padding: 26px;
+        color: #fff;
+        background: orange;
+        @include border-radius(6px);
+    }
+
+
+    .todo-items {
+        border: 1px solid #acacac;
+        @include border-radius(0 0 6px 6px);
+        .todo-item {
+            background: #ECF9ED;
+            color: gray;
+            font-size: 20px;
+            padding: 10px;
+            border-top: 1px solid #acacac;
+
+            &:first-child {
+                border: none;
+            }
+    
+            .description {
+                width: 50%;
+                display: inline-block;
+            }
+
+            .id {
+                color: purple;
+            }
+        } //end of todo-item
+    } //end of todo-items
+
+}  //end of app
+
+
+
+
+
+
+
+
