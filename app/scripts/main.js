@@ -36,7 +36,9 @@ $('.todo-items').prepend(renderedTemplate);
 })
 
 
-
+$('.todo-items').on('click', '.js-delete-todo', function(){
+	$(this).parent().remove();
+});
 
 
 

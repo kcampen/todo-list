@@ -37,8 +37,10 @@
                 <h3 class="text-muted">todo list</h3>
             </div>
 
+
             <!-- start to do list body -->
             <div class="row">
+                <h1>todo</h1>
                 <div class="app col-md-8 col-md-offset-2">
                     <div class="input-group">
                         <input class="new-todo-input js-new-todo-input" placeholder="What do you need to do?" type="text">
@@ -51,20 +53,28 @@
             </div> <!-- end of row -->
 
             <div class="footer">
-                <p>♥ from the Yeoman team</p>
+                <p>♥ from the kcampen team</p>
             </div>
 
         </div>
 
-                    <!-- <span class="id">#<%= id %></span>  //why the #? -->
+                   
         <script type="text/template" class="todo-template">
             <div class="todo-item">
                 <div class="description" id="<%= id %>">
                      <%= description %>
+                     <span class="id">#<%= id %></span>
                 </div>
-                <button type="button" class="btn btn-default">
+                <button type="button" class="btn btn-default js-edit-todo">
+                    <span class="glyphicon glyphicon-pencil"></span>
                 </button>
-            </div> <!-- end of todo-item -->
+                <button type="button" class="btn btn-default js-check-todo">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                <button type="button" class="btn btn-default js-delete-todo">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div> 
         </script>
 
 
