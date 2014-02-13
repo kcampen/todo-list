@@ -9,7 +9,7 @@ var todoList = [
 		done: false,
 		id: _.uniqueId('todo')
 	}
-]
+];
 
 todoListArray = [];
 
@@ -17,14 +17,14 @@ todoListArray = [];
 // 		this.numTracker = 0;
 // }
 // passes info into template
-var todoTemplate = _.template($('.todo-template').text())
+var todoTemplate = _.template($('.todo-template').text());
 
-console.log('ran template')
+console.log('ran template');
 
 // puts in preloaded data to the list template
 _.each(todoList, function(item){
-	$('.todo-items').prepend(todoTemplate(item))
-})
+	$('.todo-items').prepend(todoTemplate(item));
+});
 
 
 // adds new todo item to the list and prepends it to the top.
@@ -36,34 +36,34 @@ $('.js-add-todo').on('click', function(){
 		description: description,
 		done: false,
 		id: _.uniqueId('todo'),
-	}
+	};
 
 	var renderedTemplate = todoTemplate(todo);
 	todoList.push(todo);
 	todoListArray.push(todo);
-$('.todo-items').prepend(renderedTemplate);
- +todoList.length;
- $('.todotracker > .num').text(todoList.length);
+	$('.todo-items').prepend(renderedTemplate);
+		+todoList.length;
+	$('.todotracker > .num').text(todoList.length);
 
-})
+});
 
 // delete todo item from todo-items list
 $('.todo-items').on('click', '.js-delete-todo', function(){
 
 		
 	var parentId = $(this).parents('.todo-item').attr('id');
-	console.log("Here is", parentId)
+	console.log('Here is', parentId);
 
 	todoList = _.reject(todoList, function(item){
 
-		return item.id == parentId;
+		return item.id === parentId;
 
-	})
+	});
 
 
 	$(this).parents('.todo-item').remove();
 
-})
+});
 
 
 
