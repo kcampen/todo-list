@@ -16,9 +16,11 @@
               expect(firstTodoText).to.contain('string');
             });
             	// should not allow empty input field to prepend todo template.
-            it('should throw an error if input in empty when add button is clicked', function(){
-
-            	expect(function(){description.()}).to.throw(Error);
+            it('should throw an error if input field is empty', function(){
+            	$('.js-new-todo-input').val('');
+            	$('.js-add-todo').click();
+            	var todoInput = $('.todo-item').text();
+            	expect(function(){todoInput.('')}).to.throw(Error);
             });
         });
     });

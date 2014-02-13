@@ -3,22 +3,31 @@ var todoList = [
 	{
 		description: 'wake up',
 		done: false,
-		id: _.uniqueId()
+		id: _.uniqueId('todo')
 	},{
 		description: 'eat pizza',
 		done: false,
-		id: _.uniqueId()
+		id: _.uniqueId('todo')
 	}
 ]
 
+todoListArray = [];
+
+// var newList = function(object){
+// 		this.numTracker = 0;
+// }
+// passes info into template
 var todoTemplate = _.template($('.todo-template').text())
 
 console.log('ran template')
 
+// puts in preloaded data to the list template
 _.each(todoList, function(item){
 	$('.todo-items').prepend(todoTemplate(item))
 })
 
+
+// adds new todo item to the list and prepends it to the top.
 $('.js-add-todo').on('click', function(){
 
 	var description = $('.js-new-todo-input').val();
@@ -26,20 +35,47 @@ $('.js-add-todo').on('click', function(){
 	var todo = {
 		description: description,
 		done: false,
-		id: _.uniqueId()
+		id: _.uniqueId('todo'),
 	}
 
 	var renderedTemplate = todoTemplate(todo);
-
+	todoList.push(todo);
+	todoListArray.push(todo);
 $('.todo-items').prepend(renderedTemplate);
+ +todoList.length;
+ $('.todotracker > .num').text(todoList.length);
+
+})
+
+// delete todo item from todo-items list
+$('.todo-items').on('click', '.js-delete-todo', function(){
+
+		
+	var parentId = $(this).parents('.todo-item').attr('id');
+	console.log("Here is", parentId)
+
+	todoList = _.reject(todoList, function(item){
+
+		return item.id == parentId;
+
+	})
+
+
+	$(this).parents('.todo-item').remove();
 
 })
 
 
-$('.todo-items').on('click', '.js-delete-todo', function(){
-	$(this).parent().remove();
-});
 
+	
+
+
+
+// checks off completed item from list
+$('.todo-items').on('click', '.js-check-todo', function(){
+
+	$(this).siblings('.description').toggleClass('complete');
+});
 
 
 

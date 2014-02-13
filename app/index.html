@@ -49,6 +49,9 @@
                         </span>
                     </div>  <!-- end of input div -->
                     <div class="todo-items"></div>  <!-- end of todo-items -->
+                    <div class="todotracker">
+                        <span class="num">2</span>
+                    </div>
                 </div>  <!-- end of col -->
             </div> <!-- end of row -->
 
@@ -60,10 +63,9 @@
 
                    
         <script type="text/template" class="todo-template">
-            <div class="todo-item">
-                <div class="description" id="<%= id %>">
+            <div class="todo-item" id="<%= id %>">
+                <div class="description">
                      <%= description %>
-                     <span class="id">#<%= id %></span>
                 </div>
                 <button type="button" class="btn btn-default js-edit-todo">
                     <span class="glyphicon glyphicon-pencil"></span>

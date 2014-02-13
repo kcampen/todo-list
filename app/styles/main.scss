@@ -112,6 +112,10 @@ body {
             .description {
                 width: 50%;
                 display: inline-block;
+
+                &.complete {
+                    text-decoration: line-through;
+                }
             }
 
             .id {
@@ -120,6 +124,9 @@ body {
         } //end of todo-item
     } //end of todo-items
 
+    .tracker {
+        
+    }
 }  //end of app
 
 
