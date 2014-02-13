@@ -8,6 +8,41 @@
 </head>
 <body>
     <div id="mocha"></div>
+
+    <!-- start to do list body -->
+    <div class="row">
+        <h1>todo</h1>
+        <div class="app col-md-8 col-md-offset-2">
+            <div class="input-group">
+                <input class="new-todo-input js-new-todo-input" placeholder="What do you need to do?" type="text">
+                <span class="input-group-btn">
+                    <button class="btn btn-default js-add-todo add-todo">Add</button>
+                </span>
+            </div>  <!-- end of input div -->
+            <div class="todo-items"></div>  <!-- end of todo-items -->
+            <div class="todotracker">
+                <span class="num">2</span>
+            </div>
+        </div>  <!-- end of col -->
+    </div> <!-- end of row -->
+
+    <script type="text/template" class="todo-template">
+        <div class="todo-item" id="<%= id %>">
+            <div class="description">
+                 <%= description %>
+            </div>
+            <button type="button" class="btn btn-default js-edit-todo">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" class="btn btn-default js-check-todo">
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+            <button type="button" class="btn btn-default js-delete-todo">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div> 
+    </script>
+
     <script src="bower_components/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="bower_components/chai/chai.js"></script>
