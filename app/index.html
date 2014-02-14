@@ -51,6 +51,7 @@
                     <div class="todo-items"></div>  <!-- end of todo-items -->
                     <div class="todotracker">
                         <span class="num">2</span>
+                        <span class="numleft">items todo</span>
                     </div>
                 </div>  <!-- end of col -->
             </div> <!-- end of row -->
@@ -65,7 +66,8 @@
         <script type="text/template" class="todo-template">
             <div class="todo-item" id="<%= id %>">      
                 <div class="description">
-                     <%= description %>
+                     <span class="description-text"><%= description %></span>
+                     <input type='text' class='inputbox hidden' value="<%= description%>">
                 </div>
                 <button type="button" class="btn btn-default js-edit-todo">
                     <span class="glyphicon glyphicon-pencil"></span>

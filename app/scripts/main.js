@@ -13,6 +13,8 @@ var todoList = [
 
 todoListArray = [];
 
+
+
 // var newList = function(object){
 // 		this.numTracker = 0;
 // }
@@ -38,11 +40,14 @@ $('.js-add-todo').on('click', function(){
 		id: _.uniqueId('todo'),
 	};
 
+	// if var todo !== ('')
+
+
 	var renderedTemplate = todoTemplate(todo);
 	todoList.push(todo);
 	todoListArray.push(todo);
 	$('.todo-items').prepend(renderedTemplate);
-		+todoList.length;
+	+todoList.length;
 	$('.todotracker > .num').text(todoList.length);
 
 });
@@ -54,13 +59,14 @@ $('.todo-items').on('click', '.js-delete-todo', function(){
 	var parentId = $(this).parents('.todo-item').attr('id');
 	console.log('Here is', parentId);
 
-	todoList = _.reject(todoList, function(item){
+	todoList = _.reject(todoList, function(item, index){
 
 		return item.id === parentId;
 
 	});
 
-
+	+todoList.length;
+	$('.todotracker > .num').text(todoList.length);
 	$(this).parents('.todo-item').remove();
 
 });
@@ -81,14 +87,27 @@ $('.todo-items').on('click', '.js-check-todo', function(){
 
 
 
+ $('.todo-items').on('click', '.js-edit-todo', function(){
+	$(this).siblings('.description').find('.inputbox').removeClass('hidden');
+
+	var text = $(this).siblings('.description').find('.description-text').text()
+ 	console.log('text is', text)
+
+	
+ 	$(this).children('.inputbox').val(text)
+ 	
+ });
 
 
-// 	// Function        Function     string
+
+
+
+	// Function        Function     string
 // var todoTemplate = _.template($('.todo-template').text())
 	
-// 	// String           Function         Object
+ 	// String           Function         Object
 // var renderedTemplate = todoTemplate({description: 'fake todo'});
 
-// // Jquery selector             string
+ // Jquery selector             string
 // $('.todo-items').prepend(renderedTemplate);
-// // reading right to left. 
+ // reading right to left. 
