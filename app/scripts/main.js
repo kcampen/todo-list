@@ -32,6 +32,9 @@ _.each(todoList, function(item, index){
 
 // adds new todo item to the list and prepends it to the top.
 $('.js-add-todo').on('click', function(){
+		if (($('.js-new-todo-input').val()) !== '') {
+		throw new Error ('Error')
+	}
 
 	var description = $('.js-new-todo-input').val();
 	
@@ -40,8 +43,6 @@ $('.js-add-todo').on('click', function(){
 		done: false,
 		id: _.uniqueId('todo'),
 	};
-
-	// if var todo !== ('')
 
 
 	var renderedTemplate = todoTemplate(todo);
