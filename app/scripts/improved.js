@@ -7,15 +7,14 @@ var TodoView = Backbone.View.extend({
 	renderTemplate: _.template($('.todo-template').text()),
 
 	events: {
-		"click .js-check-todo": "toggleDone"
+		'click .js-check-todo': 'toggleDone'
 	},
 
 // this starts and then this.render says after you start go ahead and render yourself
 	initialize: function(){
 		console.log('hi hi');
-		$('.todo-items').prepend( this.el )		
-
-		this.render()
+		$('.todo-items').prepend(this.el);		
+		this.render();
 
 		// this one line updates any changes to page automatically
 		this.listenTo(this.model, 'change', this.render)
@@ -34,8 +33,7 @@ var TodoView = Backbone.View.extend({
 		//this.model.set('completed', true) below toggles btwn true/false 
 		 this.model.set('completed', !this.model.get('completed')) 
 	}
-
-})
+});
 
 var fakeModel = {
 	description: 'Feed the Dog',
@@ -43,6 +41,6 @@ var fakeModel = {
 	id: _.uniqueId('todo')
 }
 
-var modelInstance = new Todo(fakeModel)
+var modelInstance = new Todo(fakeModel);
          // constructor
-var view = new TodoView ({model: modelInstance})
+var view = new TodoView ({model: modelInstance});
